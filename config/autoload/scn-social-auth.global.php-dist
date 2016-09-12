@@ -27,18 +27,18 @@ return ['social-auth'=>
             ],
             "Google" => [
                 "enabled" => true,
-                "keys" => ["id" => "660751909219-mm6hao5stb3u7uig9o2rqbuil2td05t6.apps.googleusercontent.com","secret" => "UqJnYbK7TrDgsmZ8PjedAwDV"],
-                "redirect_uri" => "http://callcocam.com.br/calback/?hauth.done=Google",
+                "keys" => ["id" => "","secret" => ""],
+                "redirect_uri" => "",
                 "access_type" => "online"
             ],
             "Facebook" => [
                 "enabled" => true,
-                "keys" => ["id" => "162032950871423", "secret" => "aeb4bdd43a23aeca0165eea79fbf8316"],
+                "keys" => ["id" => "", "secret" => ""],
                 "trustForwarded" => false
             ],
             "Twitter" => [
                 "enabled" => true,
-                "keys" => ["key" => "GHimc2ithK9WzikD6tue3ansb", "secret" => "Qf7By6mzXZAnsKaYbfvafUxi8Gv3uWXyPo82eQ1ogzGIRPEeA8"],
+                "keys" => ["key" => "", "secret" => ""],
                 "includeEmail" => true,
                 "scope" => "email, user_about_me, user_birthday, user_hometown" // optional
             ],
@@ -49,7 +49,7 @@ return ['social-auth'=>
             ],
             "LinkedIn" => [
                 "enabled" => true,
-                "keys" => ["key" => "78g1jqbt58isqq", "secret" => "HEf0wBZfghnfWyWn"]
+                "keys" => ["key" => "", "secret" => ""]
             ],
             "Foursquare" => [
                 "enabled" => true,
@@ -57,11 +57,11 @@ return ['social-auth'=>
             ],
             "Instagram" => [
                 "enabled" => true,
-                "keys" => ["id" => "74593f432c614804bad5ed859c623bfa", "secret" => "0991e58e40d54a29ae4623044e5d90e2"]
+                "keys" => ["id" => "", "secret" => ""]
             ],
             "GitHub" => [
                 "enabled" => true,
-                "keys" => ["id" => "fa594378b1fb2181428d", "secret" => "0f34f92450c00ec5c7f6551dc78821e45eb3fa39"]
+                "keys" => ["id" => "", "secret" => ""]
             ],
         ],
         // If you want to enable logging, set 'debug_mode' to true.
