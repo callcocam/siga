@@ -1,0 +1,41 @@
+<?php
+//este arquivo sera criado pelo sistema
+return array(
+    'Facebook' => array(
+        'enabled' => '1',
+        'keys' => array(
+            'id' => '',
+            'secret' => '',
+        ),
+        'access_type' => 'online',
+        'includeEmail' => '1',
+    ),
+    'Google' => array(
+        'enabled' => '1',
+        'keys' => array(
+            'id' => '',
+            'secret' => '',
+        ),
+        'redirect_uri' => 'http://callcocam.com.br/auth/calback/?hauth.done=Google',
+        'access_type' => 'online',
+        'includeEmail' => '1',
+    ),
+    'LinkedIn' => array(
+        'enabled' => '1',
+        'keys' => array(
+            'key' => '',
+            'secret' => '',
+        ),
+        'access_type' => 'online',
+        'includeEmail' => '1',
+    ),
+    'GitHub' => array(
+        'enabled' => '1',
+        'keys' => array(
+            'key' => '',
+            'secret' => '',
+        ),
+        'access_type' => 'online',
+        'includeEmail' => '1',
+    ),
+);

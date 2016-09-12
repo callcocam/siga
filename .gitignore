@@ -3,6 +3,7 @@
 .vagrant/
 vendor/
 config/development.config.php
+config/autoload/provider.php
 data/cache/*
 public/dist/cache/*
 public/dist/images/*
