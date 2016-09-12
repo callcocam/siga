@@ -17,9 +17,9 @@
         self.$http.get('/home/home/assinaturas').then(function(response){
             self.assinaturas=response.data;
         });
-            self.$http.get('/home/home/initialsesseionpg').then(function(response){
+           /* self.$http.get('/home/home/initialsesseionpg').then(function(response){
                console.log(response.data);
-            });
+            });*/
         }
     }
 });
