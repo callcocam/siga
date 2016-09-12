@@ -1,0 +1,129 @@
+<?php echo $this->doctype() ?>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <?php echo$this->headTitle('CALLCOCAM-Cursos Online')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php
+        $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0')->appendHttpEquiv('X-UA-Compatible', 'IE=edge');
+        $this->headMeta()->setProperty('description', 'Cursos Online sobre Tecnologia e Desenvolvimento Web, Zend Framework, Jquery, CSS3, HTML5, Vue Js PHP.');
+        $this->headMeta()->setProperty('image','http://callcocam.com.br/xeon/images/Cursos-Online-Tecnologia-Desenvolvimento-Zend-Framework-query-CSS3-HTML5-VueJs-HP.jpg');
+        $this->headMeta()->setProperty('robot', 'index, follow');
+        $this->headMeta()->setProperty('twitter:card', 'summary_large_image');
+        $this->headMeta()->setProperty('twitter:site', '#callcocam');
+        $this->headMeta()->setProperty('twitter:domain', 'http://callcocam.com.br/');
+        $this->headMeta()->setProperty('twitter:title', 'CALLCOCAM-Cursos Online');
+        $this->headMeta()->setProperty('twitter:description', 'Cursos Online sobre Tecnologia e Desenvolvimento Web, Zend Framework, Jquery, CSS3, HTML5, Vue Js PHP.');
+        $this->headMeta()->setProperty('twitter:image', 'http://callcocam.com.br/xeon/images/Cursos-Online-Tecnologia-Desenvolvimento-Zend-Framework-query-CSS3-HTML5-VueJs-HP.jpg');
+        $this->headMeta()->setProperty('twitter:url', 'http://callcocam.com.br/');
+        $this->headMeta()->setProperty('fb:app_id', '162032950871423');
+        $this->OpenGraph()->setType('article');
+        $this->OpenGraph()->setTitle('CALLCOCAM-Cursos Online');
+        $this->OpenGraph()->setSiteName('CALLCOCAM-Cursos Online');
+        $this->OpenGraph()->setDescription("Cursos Online sobre Tecnologia e Desenvolvimento Web, Zend Framework, Jquery, CSS3, HTML5, Vue Js PHP.");
+        $this->OpenGraph()->setUrl('http://callcocam.com.br');
+        //$this->OpenGraph()->setLocale('pt', array('pt', 'sr'));
+        $this->OpenGraph()->appendImage('http://callcocam.com.br/xeon/images/Cursos-Online-Tecnologia-Desenvolvimento-Zend-Framework-query-CSS3-HTML5-VueJs-HP.jpg');
+        echo $this->headMeta(); ?>
+
+        <!-- Le styles -->
+        <?php echo$this->headLink(['rel' => 'shortcut icon', 'type' => '/xeon/image/vnd.microsoft.icon', 'href' => $this->basePath() . '/xeon/img/favicon.ico'])
+            ->prependStylesheet($this->basePath('/xeon/css/main.css'))
+            ->prependStylesheet($this->basePath('/xeon/css/animate.css'))
+            ->prependStylesheet($this->basePath('/xeon/css/prettyPhoto.css'))
+            ->prependStylesheet($this->basePath('/xeon/css/font-awesome.min.css'))
+           ->prependStylesheet($this->basePath('/xeon/css/bootstrap.min.css'))
+        ?>
+
+
+    </head>
+    <body id="app"  data-spy="scroll" data-target="#navbar" data-offset="0">
+      <header id="header" role="banner">
+        <div class="container">
+            <div id="navbar" class="navbar navbar-default">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/"></a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#main-slider"><i class="icon-home"></i></a></li>
+                        <li><a href="#service">SERVIÇOS</a></li>
+                        <li><a href="#videos">VIDEOS/ARTIGOS</a></li>
+                        <li><a href="#sobre">SOBRE MIN</a></li>
+                        <li><a href="#contact">CONTATO</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header><!--/#header-->
+        
+         <?= $this->content ?>
+          <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2013 <a target="_blank" href="http://sigasmart.com.br" title="SIGA SMART">SIGA SMART</a>. All Rights Reserved.
+                </div>
+                <div class="col-sm-6">
+                    <img class="pull-right" src="/xeon/images/shapebootstrap.png" alt="ShapeBootstrap" title="ShapeBootstrap">
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+        <?= $this->inlineScript() ?>
+       <!-- Scripts -->
+       <?php echo $this->headScript()
+            ->prependFile($this->basePath('/xeon/js/vue.init.js'))
+            ->prependFile($this->basePath('/xeon/js/vue-filter.min.js'))
+            ->prependFile($this->basePath('/xeon/js/vue-youtube-embed.js'))
+            ->prependFile($this->basePath('/xeon/js/vue-resource.min.js'))
+            ->prependFile($this->basePath('/xeon/js/vue.min.js'))
+            ->prependFile($this->basePath('/xeon/js/require.js'))
+            ->prependFile($this->basePath('/xeon/js/main.js'))
+           ->prependFile($this->basePath('/xeon/js/bootstrap.min.js'))
+           ->prependFile($this->basePath('/xeon/js/jquery.js'))
+       ?>
+      <script>
+          $(function(){
+              $(".share-face").on('click',function(){
+                  var url = $(this).attr('href');
+                  var width = 600;
+                  var height = 600;
+                  var leftPosition, topPosition;
+                  leftPosition = (window.screen.width / 2) - ((width / 2) + 10);
+                  topPosition = (window.screen.height / 2) - ((height / 2) + 100);
+                  window.open(url, "Window2",
+                      "status=no,height=" + height + ",width=" + width + ",resizable=yes,left="
+                      + leftPosition + ",top=" + topPosition + ",screenX=" + leftPosition + ",screenY="
+                      + topPosition + ",toolbar=no,menubar=no,scrollbars=no,location=no,directories=no");
+                  return false;
+              });
+              $.ajax({
+                  url:'http://api.facebook.com/restserver.php?format=json&method=links.getStats&urls=http://callcocam.com.br',
+                  type:'get',
+                  dataType:'json',
+                  success:function(data){
+                      $("#count_likes").html(data[0].share_count);
+                  }
+              });
+
+
+          })
+
+      </script>
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.7&appId=162032950871423";
+              fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));</script>
+    </body>
+</html>

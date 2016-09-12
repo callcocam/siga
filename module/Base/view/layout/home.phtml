@@ -1,0 +1,82 @@
+<?php echo $this->doctype() ?>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <?php echo$this->headTitle('ZF HOME')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+        <!-- Le styles -->
+        <?php echo$this->headLink(['rel' => 'shortcut icon', 'type' => '/assets_admin/image/vnd.microsoft.icon', 'href' => $this->basePath() . '/assets_admin/img/favicon.ico'])
+            ->prependStylesheet($this->basePath('/assets_admin/css/style.css'))
+            ->prependStylesheet($this->basePath('/assets_admin/css/pnotify.custom.min.css'))
+            ->prependStylesheet($this->basePath('/assets_admin/css/font-awesome.min.css'))
+            ->prependStylesheet($this->basePath('/assets_admin/css/bootstrap-theme.min.css'))
+            ->prependStylesheet($this->basePath('/assets_admin/css/bootstrap.min.css'))
+        ?>
+
+
+    </head>
+    <body id="app">
+       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="<?= $this->url('home') ?>">
+                        <img src="<?=$this->basePath('/assets_admin/img/zf-logo-mark.svg') ?>" height="28" alt="Zend Framework <?= \Base\Module::VERSION ?>"/>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/">HOME <span class="sr-only">(current)</span></a></li>
+                        <li><a href="<?=$this->url('politica-de-privacidade')?>">POLITICA</a></li>
+                        <li><a href="<?=$this->url('termos-de-uso')?>">TERMOS</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav right">
+                        <?php if($this->UserIdentity()->getHasIdentity()):?>
+                        <li><a href="<?=$this->url('auth/default',['controller'=>'auth','action'=>'update-profile'])?>">MINHA CONTA!</a></li>
+                        <li><a href="<?=$this->url('auth/default',['controller'=>'auth','action'=>'logout'])?>">SAIR DO SISTEMA!</a></li>
+                        <?php else:?>
+                        <li> <a href="<?=$this->url('auth')?>">IR PARA A TELA DE LOGIN!</a></li>
+                        <?php endif;?>
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+         <?= $this->content ?>
+             <hr>
+            <footer>
+                <p>&copy; 2005 - <?= date('Y') ?> by Zend Technologies Ltd. All rights reserved.</p>
+            </footer>
+        </div>
+        <?= $this->inlineScript() ?>
+       <!-- Scripts -->
+       <?php echo $this->headScript()
+           ->prependFile('//stc.sandbox.pagseguro.uol.com.br/pagseguro/api/checkout/pagseguro.directpayment.js')
+           ->prependFile($this->basePath('/assets_admin/js/vue.search.js'))
+           ->prependFile($this->basePath('/assets_admin/vue/vue-resource.min.js'))
+           ->prependFile($this->basePath('/assets_admin/vue/vue.min.js'))
+           ->prependFile($this->basePath('/assets_admin/js/notify.init.js'))
+            ->prependFile($this->basePath('/assets_admin/js/fileUpload.js'))
+           ->prependFile($this->basePath('/assets_admin/js/form.init.js'))
+           ->prependFile($this->basePath('/assets_admin/js/Funcoes.js'))
+           ->prependFile($this->basePath('/assets_admin/js/jquery.sprintf.js'))
+           ->prependFile($this->basePath('/assets_admin/js/jquery.form.min.js'))
+           ->prependFile($this->basePath('/assets_admin/js/pnotify.custom.min.js'))
+           ->prependFile($this->basePath('/assets_admin/js/bootstrap.min.js'))
+           ->prependFile($this->basePath('/assets_admin/js/jquery-3.1.0.min.js'))
+       ?>
+
+    </body>
+</html>

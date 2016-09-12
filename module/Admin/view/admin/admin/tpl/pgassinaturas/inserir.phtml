@@ -1,0 +1,170 @@
+<form method="POST" name="Pgassinaturas" id="Manager" enctype="multipart&#x2F;form-data" class="form-horizontal" role="form" action="action-form-do-formulario">
+    <fieldset>
+        <legend>FORMULARI DE MANUTENÇÃO</legend>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+                <fieldset>
+                    <legend>GERAL</legend>
+                    #id#
+                    #asset_id#
+                    #codigo#
+                    #empresa#
+                    #title#
+                    <div> <label class="control-label" for="pre_approval_name">
+                            {{pre_approval_name}}
+                        </label><div class="valid&#x20;pre_approval_name">
+                            #pre_approval_name#
+                        </div>
+
+                    </div>
+                    <div> <label class="control-label" for="pre_approval_details">
+                            {{pre_approval_details}}
+                        </label><div class="valid&#x20;pre_approval_details">
+                            #pre_approval_details#
+                        </div>
+
+                    </div>
+
+                    <div> <label class="control-label" for="pre_pproval_charge">
+                            {{pre_pproval_charge}}
+                        </label><div class="valid&#x20;pre_pproval_charge">
+                            #pre_pproval_charge#
+                        </div>
+
+                    </div>
+                    <div> <label class="control-label" for="pre_approval_period">
+                            {{pre_approval_period}}
+                        </label><div class="valid&#x20;pre_approval_period">
+                            #pre_approval_period#
+                        </div>
+
+                    </div>
+                    <div> <label class="control-label" for="pre_approval_Initialdate">
+                            {{pre_approval_Initialdate}}
+                        </label><div class="valid&#x20;pre_approval_Initialdate">
+                            #pre_approval_Initialdate#
+                        </div>
+
+                    </div>
+                    <div> <label class="control-label" for="pre_approval_dayofweek">
+                            {{pre_approval_dayofweek}}
+                        </label><div class="valid&#x20;pre_approval_dayofweek">
+                            #pre_approval_dayofweek#
+                        </div>
+
+                    </div>
+                    <div> <label class="control-label" for="pre_pproval_dayofmonth">
+                            {{pre_pproval_dayofmonth}}
+                        </label><div class="valid&#x20;pre_pproval_dayofmonth">
+                            #pre_pproval_dayofmonth#
+                        </div>
+
+                    </div>
+                    <div> <label class="control-label" for="pre_approval_dayofyear">
+                            {{pre_approval_dayofyear}}
+                        </label><div class="valid&#x20;pre_approval_dayofyear">
+                            #pre_approval_dayofyear#
+                        </div>
+
+                    </div>
+                    <div> <label class="control-label" for="pre_approval_final_date">
+                            {{pre_approval_final_date}}
+                        </label><div class="valid&#x20;pre_approval_final_date">
+                            #pre_approval_final_date#
+                        </div>
+
+                    </div>
+                    <div> <label class="control-label" for="pre_approval_amount_per_payment">
+                            {{pre_approval_amount_per_payment}}
+                        </label><div class="valid&#x20;pre_approval_amount_per_payment">
+                            #pre_approval_amount_per_payment#
+                        </div>
+
+                    </div>
+                    <div> <label class="control-label" for="pre_approval_max_total_amount">
+                            {{pre_approval_max_total_amount}}
+                        </label><div class="valid&#x20;pre_approval_max_total_amount">
+                            #pre_approval_max_total_amount#
+                        </div>
+
+                    </div>
+                    <div> <label class="control-label" for="pre_approval_max_amount_per_period">
+                            {{pre_approval_max_amount_per_period}}
+                        </label><div class="valid&#x20;pre_approval_max_amount_per_period">
+                            #pre_approval_max_amount_per_period#
+                        </div>
+
+                    </div>
+                                #redirect_url#
+                         <div> <label class="control-label" for="review_url">
+                            {{review_url}}
+                        </label><div class="valid&#x20;review_url">
+                            #review_url#
+                        </div>
+
+                    </div>
+                    <div> <label class="control-label" for="description">
+                            {{description}}
+                        </label><div class="valid&#x20;description">
+                            #description#
+                        </div>
+
+                    </div>
+
+
+                    #security#
+
+                    <hr>
+                    <button type="submit" name="save" class="btn&#x20;btn-primary" value="">SALVAR</button>
+                    #btn-voltar#
+                    <div class="clearfix"></div>
+                </fieldset>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <fieldset>
+                    <legend>FORMULARI DE ADICIONAL</legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div>     <div class="img-add images"><label class="control-label" for="images">
+                                        {{images}}
+                                    </label>
+                                    #imagePriview#
+                                </div>
+                                <div class="valid&#x20;images">
+                                    #images#
+                                </div>
+                                <input type="file" class="atachament" id="atachament" name="atachament">
+                                <p class="help-block">Max. 32MB</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div> <label class="control-label" for="access">
+                                    {{access}}
+                                </label><div class="valid&#x20;access">
+                                    #access#
+                                </div>
+                            </div>
+                            <div> <label class="control-label" for="state">
+                                    {{state}}
+                                </label><div class="valid&#x20;state">
+                                    #state#
+                                </div>
+                            </div>
+                            <div> <label class="control-label" for="created">
+                                    {{created}}
+                                </label><div class="valid&#x20;created">
+                                    #created#
+                                </div>
+
+                            </div>
+                            #modified#
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </fieldset>
+</form>

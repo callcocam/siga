@@ -1,0 +1,20 @@
+<div class="box login-box">
+    <div class="main-login-header">
+        <a href="<?php echo $this->url('admin') ?>"></a>
+    </div><!-- /.login-logo -->
+    <div class="main-login-box login-box-body">
+        <?php echo $this->messages(); ?>
+        <?php $partial=$this->partial("/auth/auth/tpl/register");
+        $form->setAttribute('action',$this->url("{$this->route}/default",['controller'=>$this->controller,'action'=>'register']));?>
+        <?=$this->UserIdentity()->getForm($partial,$form);?>
+        <p class="p-separator">
+            <a href="<?php echo $this->url("home") ?>">&larrhk; Voltar para Site!</a> &nbsp;&nbsp;&nbsp;
+            <a href="<?=$this->url("auth");?>"><?php echo $this->translate('&larrhk;  Voltar P/ Login'); ?></a>
+            &nbsp;&nbsp;&nbsp;
+            <a  href="<?=$this->url("{$this->route}/default",['controller'=>$this->controller,'action'=>'forgothen-password']);?>"><?php echo $this->translate('Forgotten Password &#8618;'); ?></a>
+        </p>
+        <?php if ($this->resolver("auth/auth/tpl/widget-login-social")) :?>
+            <?=$this->partial("/auth/auth/tpl/widget-login-social");?>
+        <?php endif;?>
+    </div><!-- /.login-box-body -->
+</div><!-- /.login-box -->

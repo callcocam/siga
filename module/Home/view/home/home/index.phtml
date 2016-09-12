@@ -1,0 +1,51 @@
+<?php if($this->UserIdentity()->getHasIdentity()):?>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron" style="text-align: center">
+                <h1><i class="fa fa-universal-access fa-5x" aria-hidden="true"></i></h1>
+                <p>SEJA BEM VINDO! <?=$this->UserIdentity()->getHasIdentity()->title;?></p>
+                <div class="col-md-6 col-xs-12">
+                    <a href="<?=$this->url('admin')?>" class="btn btn-success btn-block btn-lg">IR PARA O ADMIN!</a>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <a href="<?=$this->url('auth/default',['controller'=>'auth','action'=>'logout'])?>" class="btn btn-danger btn-block btn-lg">SAIR DO SISTEMA!</a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+
+    </div>
+<?php else:?>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron" style="text-align: center">
+                <h1><i class="fa fa-frown-o fa-5x" aria-hidden="true"></i></h1>
+                <p>BYE!, Foi MuitoBom Telo Aqui Conosco, Volte Sempre!</p>
+                <div class="col-md-6 col-xs-12">
+                    <a href="<?=$this->url('home')?>" class="btn btn-success btn-block btn-lg">IR PARA O SITE!</a>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <a href="<?=$this->url('auth')?>" class="btn btn-primary btn-block btn-lg">IR PARA A TELA DE LOGIN!</a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+
+    </div>
+<?php endif;?>
+<div class="row" id="assinaturas">
+
+        <div class="col-sm-6 col-md-4" v-for="assinatura in assinaturas">
+            <div class="thumbnail">
+                <img data-src="holder.js/100%x200" alt="100%x200" style="height: 200px; width: 100%; display: block;" src="/dist/{{ assinatura.images }}" data-holder-rendered="true">
+                <div class="caption"> <h3>{{ assinatura.pre_approval_name }}</h3>
+                    <p>{{ assinatura.description }}</p> <p>
+                        <a role="button" class="btn btn-primary" href="#">Button</a>
+                        <a role="button" class="btn btn-default" href="#">Button</a></p>
+                </div>
+            </div>
+        </div>
+
+</div>

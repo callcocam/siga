@@ -1,0 +1,14 @@
+.vagrant/
+.idea/
+.vagrant/
+vendor/
+config/development.config.php
+data/cache/*
+public/dist/cache/*
+public/dist/images/*
+!data/cache/.gitkeep
+phpunit.xml
+ubuntu-xenial-16.04-cloudimg-console.log
+composer.lock
+public/assets_admin/scss/*
+public/assets_admin/js/tinymce/*

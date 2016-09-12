@@ -1,0 +1,20 @@
+<div class="box login-box">
+    <div class="main-login-header">
+        <a href="<?php echo $this->url('admin') ?>"></a>
+    </div><!-- /.login-logo -->
+    <div class="main-login-box login-box-body">
+        <p class="alert alert-info">Faça login para começar a sua sessão</p>
+        <?php $partial=$this->partial("/auth/auth/tpl/login-tpl");
+        $form->setAttribute('action',$this->url('authenticate'));?>
+        <?=$this->UserIdentity()->getForm($partial,$form);?>
+        <p class="p-separator">
+            <a href="<?php echo $this->url("home") ?>">&larrhk; Voltar para Site!</a> &nbsp;&nbsp;&nbsp;
+            <a href="<?=$this->url("{$this->route}/default",['controller'=>$this->controller,'action'=>'register']);?>"><?php echo $this->translate('Register &#8618;'); ?></a>
+            &nbsp;&nbsp;&nbsp;
+            <a  href="<?=$this->url("{$this->route}/default",['controller'=>$this->controller,'action'=>'forgothen-password']);?>"><?php echo $this->translate('Forgotten Password &#8618;'); ?></a>
+        </p>
+            <?php if ($this->resolver("auth/auth/tpl/widget-login-social")) :?>
+                <?=$this->partial("/auth/auth/tpl/widget-login-social");?>
+            <?php endif;?>
+    </div><!-- /.login-box-body -->
+</div><!-- /.login-box -->

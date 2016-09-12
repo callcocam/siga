@@ -1,0 +1,45 @@
+<div class="panel panel-default">
+    <div class="panel-heading">LISTA RESULTADOS
+        <ul class="nav-btn-make pull-right">
+            <li><a href="<?=$this->url("{$this->route}/default",['controller'=>$this->controller,'action'=>'create'])?>" class="btn btn-success btn-sm" style="margin-top: -8px;"><span class="fa fa-plus"> </span> ADICIONAR NOVO</a> &nbsp;&nbsp;&nbsp;</li>
+            <li> <a href="<?=$this->url("{$this->route}/default",['controller'=>'make','action'=>'services'])?>" class="btn btn-warning btn-sm" style="margin-top: -8px;"><span class="fa fa-plus"> </span> GERAR OS SERVÇOS</a> &nbsp;&nbsp;&nbsp;</li>
+            <li><a href="<?=$this->url("{$this->route}/default",['controller'=>'make','action'=>'navigation'])?>" class="btn btn-primary btn-sm" style="margin-top: -8px;"><span class="fa fa-refresh"> </span> ATUALIZAR NAVEGAÇÃO</a> &nbsp;&nbsp;&nbsp;</li>
+            <li><a href="<?=$this->url("{$this->route}/default",['controller'=>'make','action'=>'traduzir'])?>" class="btn btn-danger btn-sm" style="margin-top: -8px;"><span class="fa fa-refresh"> </span> ATUALIZAR RADUÇÃO</a> </li>
+        </ul>
+    </div>
+
+    <div class="panel-body">
+        <?=$this->messages()?>
+        <table class="table table-condensed table-hover">
+          <thead>
+            <tr>
+                <th>TITLE</th>
+                <th>MODULE</th>
+                <th>ARQUIVO</th>
+                <th>TABELA</th>
+                <th>AÇÃO</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php  if($data):?>
+                <?php foreach($data as $o):?>
+                    <tr>
+                        <td><?=$o['title'];?></td>
+                        <td><?=$o['parent'];?></td>
+                        <td><?=$o['arquivo']?></td>
+                        <td><?=$o['tabela']?></td>
+                        <td>
+                            <a href="<?=$this->url("{$this->route}/default",['controller'=>$this->controller,'action'=>'update','id'=>$o['id']])?>" class="btn btn-primary btn-xs"><span class="fa fa-edit"></span> <span class="hidden-xs">EDITAR</span> </a>
+                            | <a href="<?=$this->url("{$this->route}/default",['controller'=>$this->controller,'action'=>'delete','id'=>$o['id']])?>" class="btn btn-danger btn-xs excluir"><span class="fa fa-trash-o"></span> <span class="hidden-xs">EXCLUIR</span> </a>
+                            <?php if(!$o['state']):?>
+                            | <a href="<?=$this->url("{$this->route}/default",['controller'=>'make','action'=>'gerar','id'=>$o['id']])?>" class="btn btn-success btn-xs"><span class="fa fa-adjust"></span> <span class="hidden-xs">GERAR MODULE</span> </a>
+                            | <a href="<?=$this->url("{$this->route}/default",['controller'=>'make','action'=>'destroy','id'=>$o['id']])?>" class="btn btn-warning btn-xs"><span class="fa fa-trash"></span> <span class="hidden-xs">DELETAR MODULE</span> </a>
+                           <?php endif;?>
+                        </td>
+                    </tr>
+                <?php endforeach;?>
+            <?php endif;?>
+            </tbody>
+        </table>
+    </div>
+</div>
