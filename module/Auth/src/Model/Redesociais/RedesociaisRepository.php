@@ -6,8 +6,6 @@
 
 namespace Auth\Model\Redesociais;
 
-use Base\Model\AbstractModel;
-use Zend\Config\Writer\PhpArray;
 use Zend\Db\TableGateway\TableGateway;
 use Base\Model\AbstractRepository;
 
@@ -22,8 +20,7 @@ class RedesociaisRepository extends AbstractRepository
     /**
      * __construct Factory Model
      *
-     * @param TableGateway $tableGateway
-     * @return \Auth\Model\Redesociais\RedesociaisRepository
+     * @return __construct
      */
     public function __construct(TableGateway $tableGateway)
     {
@@ -32,50 +29,4 @@ class RedesociaisRepository extends AbstractRepository
     }
 
 
-    public function insert(AbstractModel $model)
-    {
-        $result=parent::insert($model);
-        if($result->getResult()){
-            $this->gerar_provider();
-        }
-        return $result;
-    }
-
-    public function update(AbstractModel $model, $where = null)
-    {
-        $result=parent::update($model, $where);
-        if($result->getResult()){
-            $this->gerar_provider();
-        }
-        return $result;
-    }
-
-    public function delete($where)
-    {
-        $result=parent::delete($where);
-        if($result->getResult()){
-            $this->gerar_provider();
-        }
-        return $result;
-    }
-
-    public function gerar_provider(){
-
-        $data=$this->findBy(['state'=>'0']);
-        if($data->getResult()){
-            foreach($data->getData() as $provider):
-                $providers=['enabled'=>$provider->getEnabled(),'keys'=>[
-                    'key'=>$provider->getKey(),'secret'=>$provider->getSecret()
-                ],
-                    'redirect_uri'=>$provider->getRedirectUri(),'access_type'=>$provider->getAccessType(),
-                    'trustForwarded'=>$provider->getTrustforwarded(),
-                    'includeEmail'=>$provider->getIncludeEmail(),'scope'=>$provider->getScope()];
-                $this->providers[$provider->getProvider()]=array_filter($providers);
-            endforeach;
-            $writer = new PhpArray();
-            //file_put_contents('./config/autoload/provider.php',$writer->toString($this->providers));
-        }
-
-
-    }
 }

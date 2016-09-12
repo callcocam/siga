@@ -27,7 +27,7 @@ return [
                     "default" => [
                         "type" => "Segment",
                         "options" => [
-                            "route" => "/[:controller[/:action][/:id]]",
+                            "route" => "/[:controller[/:action][/:id][/:files]]",
                             "constraints" => [
                                 "controller" => "[a-zA-Z][a-zA-Z0-9_-]*",
                                 "action" => "[a-zA-Z][a-zA-Z0-9_-]*",

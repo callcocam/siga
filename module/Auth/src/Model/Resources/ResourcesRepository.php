@@ -20,7 +20,8 @@ class ResourcesRepository extends AbstractRepository
     /**
      * __construct Factory Model
      *
-     * @return __construct
+     * @param TableGateway $tableGateway
+     * @return \Auth\Model\Resources\ResourcesRepository
      */
     public function __construct(TableGateway $tableGateway)
     {

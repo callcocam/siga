@@ -24,8 +24,7 @@ class RedesociaisController extends AbstractController
     /**
      * __construct Factory Model
      *
-     * @param ContainerInterface $containerInterface
-     * @return \Auth\Controller\RedesociaisController
+     * @return __construct
      */
     public function __construct(ContainerInterface $containerInterface)
     {

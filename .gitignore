@@ -14,3 +14,9 @@ composer.lock
 public/assets_admin/captcha/generated/*
 public/assets_admin/scss/*
 public/assets_admin/js/tinymce/*
+module/Home/src/Storage/
+module/Mail/src/Form/View/
+public/assets_admin/js/tinymce/
+public/assets_admin/scss/
+public/dist/cache/
+public/dist/images/

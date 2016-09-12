@@ -80,7 +80,7 @@ return array(
                 'label' => 'REDE SOCIAIS',
                 'route' => 'auth/default',
                 'controller' => 'redesociais',
-                'resource' => 'Auth\\Controller\\RedeSociais',
+                'resource' => 'Auth\\Controller\\Redesociais',
                 'action' => 'index',
                 'privilege' => 'index',
                 'icone' => 'icon-android icon-md icon-color2',

@@ -81,4 +81,20 @@ class TplHelper extends AbstractHelper {
             endforeach;
         endif;
     }
+
+    public function btnGrup($o){?>
+          <div class="btn-group">
+          <a href="<?=$this->url("{$this->view->route}/default",['controller'=>'make','action'=>'gerar','id'=>$o['id']])?>" type="button" class="btn btn-danger">Gerar Module</a>
+          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="<?=$this->url("{$this->view->route}/default",['controller'=>'make','action'=>'gerar','id'=>$o['id']])?>">Action</a></li>
+            <li><a href="<?=$this->url("{$this->view->route}/default",['controller'=>'make','action'=>'gerar','id'=>$o['id']])?>">Another action</a></li>
+            <li><a href="<?=$this->url("{$this->view->route}/default",['controller'=>'make','action'=>'gerar','id'=>$o['id']])?>">Something else here</a></li>
+            <li><a href="<?=$this->url("{$this->view->route}/default",['controller'=>'make','action'=>'gerar','id'=>$o['id']])?>">Separated link</a></li>
+          </ul>
+        </div>
+    <?php }
 }

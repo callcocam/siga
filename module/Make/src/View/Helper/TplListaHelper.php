@@ -34,5 +34,20 @@ class TplListaHelper extends AbstractHelper {
         return $partial;
 
     }
+    public function btnGrup($o){?>
+        <div class="btn-group">
+            <a data-question="POR FAVOR CONFIRME A OPERAÇÃO!"  href="<?=$this->view->url("{$this->view->route}/default",['controller'=>'make','action'=>'gerar','id'=>$o['id']])?>" type="button" class="btn btn-success btn-xs confirm">Gerar Module</a>
+            <button type="button" class="btn btn-success btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="confirm" data-question="POR FAVOR CONFIRME A OPERAÇÃO!" href="<?=$this->view->url("{$this->view->route}/default",['controller'=>'make','action'=>'gerar','id'=>$o['id'],'files'=>'model'])?>">Model</a></li>
+                <li><a class="confirm" data-question="POR FAVOR CONFIRME A OPERAÇÃO!"  href="<?=$this->view->url("{$this->view->route}/default",['controller'=>'make','action'=>'gerar','id'=>$o['id'],'files'=>'repository'])?>">Repository</a></li>
+                <li><a class="confirm" data-question="POR FAVOR CONFIRME A OPERAÇÃO!"  href="<?=$this->view->url("{$this->view->route}/default",['controller'=>'make','action'=>'gerar','id'=>$o['id'],'files'=>'controller'])?>">Controller</a></li>
+                <li><a class="confirm" data-question="POR FAVOR CONFIRME A OPERAÇÃO!"  href="<?=$this->view->url("{$this->view->route}/default",['controller'=>'make','action'=>'gerar','id'=>$o['id'],'files'=>'form'])?>">Form</a></li>
+            </ul>
+        </div>
+    <?php }
 
 }

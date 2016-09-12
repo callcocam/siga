@@ -1,8 +1,9 @@
 var redirect;
+var dataQuestion='DESEJA REALMENTE EXCLUIR?';
 function question(){
     var qst=new PNotify({
         title: 'OPISSS!!',
-        text: 'DESEJA REALMENTE EXCLUIR?',
+        text: dataQuestion, //'DESEJA REALMENTE EXCLUIR?',
         icon: 'glyphicon glyphicon-question-sign',
         hide: false,
         confirm: {
@@ -30,7 +31,20 @@ function question(){
 $(function(){
     $(".excluir").on('click',function(e){
         e.preventDefault();
+        if($(this)[0].hasAttribute('data-question')){
+            dataQuestion=$(this).attr('data-question');
+        }
         redirect=$(this).attr('href');
+
+        question();
+    });
+    $(".confirm").on('click',function(e){
+        e.preventDefault();
+        if($(this)[0].hasAttribute('data-question')){
+            dataQuestion=$(this).attr('data-question');
+        }
+        redirect=$(this).attr('href');
+
         question();
     });
 })

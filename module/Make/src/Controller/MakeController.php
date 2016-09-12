@@ -48,7 +48,9 @@ class MakeController extends AbstractController{
     {
         $ds = DIRECTORY_SEPARATOR;
         $module=$this->params()->fromRoute('id');
+        $param=$this->params()->fromRoute('files',null);
         $make=$this->getTable()->find($module,false);
+        $msg=[];
          if($make->getData()){
             $data=$make->getData();
             $module=$data['parent'];
@@ -68,65 +70,77 @@ class MakeController extends AbstractController{
             if(!is_dir(sprintf(".{$ds}{$this->config->module}{$ds}{$module}{$ds}src{$ds}Model{$ds}{$classe}"))){
                 mkdir(sprintf(".{$ds}{$this->config->module}{$ds}{$module}{$ds}src{$ds}Model{$ds}{$classe}"));
             }
-            $model=new Model($data,$this->containerInterface);
-            $model->generateClass();
-            $msg[]="Model {$classe} Foi Criado Com Sucesso!";
+
 
             /*Model Factory*/
-            if(!is_dir(sprintf(".{$ds}{$this->config->module}{$ds}{$module}{$ds}src{$ds}Model{$ds}{$classe}{$ds}Factory"))){
-                mkdir(sprintf(".{$ds}{$this->config->module}{$ds}{$module}{$ds}src{$ds}Model{$ds}{$classe}{$ds}Factory"));
-            }
-            $modelFactory=new FactoryModel($data,$this->containerInterface);
-            $modelFactory->generateClass();
-            $msg[]="Model Factory {$classe} Foi Criado Com Sucesso!";
+
+             if(!$param || $param=='model' ){
+
+                 if(!is_dir(sprintf(".{$ds}{$this->config->module}{$ds}{$module}{$ds}src{$ds}Model{$ds}{$classe}{$ds}Factory"))){
+                 mkdir(sprintf(".{$ds}{$this->config->module}{$ds}{$module}{$ds}src{$ds}Model{$ds}{$classe}{$ds}Factory"));
+                }
+                 $model=new Model($data,$this->containerInterface);
+                 $model->generateClass();
+                 $msg[]="Model {$classe} Foi Criado Com Sucesso!";
+
+                 $modelFactory=new FactoryModel($data,$this->containerInterface);
+                 $modelFactory->generateClass();
+                 $msg[]="Model Factory {$classe} Foi Criado Com Sucesso!";
+             }
+
+             if(!$param || $param=='repository' ){
+                 $repository=new Repository($data,$this->containerInterface);
+                 $repository->generateClass();
+                 $msg[]="Repository {$classe} Foi Criado Com Sucesso!";
+
+                 $repositoryFactory=new RepositoryFactory($data,$this->containerInterface);
+                 $repositoryFactory->generateClass();
+                 $msg[]="Repository Factory {$classe} Foi Criado Com Sucesso!";
+             }
 
 
-            $repository=new Repository($data,$this->containerInterface);
-            $repository->generateClass();
-            $msg[]="Repository {$classe} Foi Criado Com Sucesso!";
+             if(!$param || $param=='controller' ){
+                 if(!is_dir(sprintf(".{$ds}{$this->config->module}{$ds}{$module}{$ds}src{$ds}Controller"))){
+                     mkdir(sprintf(".{$ds}{$this->config->module}{$ds}{$module}{$ds}src{$ds}Controller"));
+                 }
+                 $controller=new Controller($data,$this->containerInterface);
+                 $controller->generateClass();
+                 $msg[]="Controller {$classe} Foi Criado Com Sucesso!";
 
-            $repositoryFactory=new RepositoryFactory($data,$this->containerInterface);
-            $repositoryFactory->generateClass();
-            $msg[]="Repository Factory {$classe} Foi Criado Com Sucesso!";
+                 if(!is_dir(sprintf(".{$ds}{$this->config->module}{$ds}{$module}{$ds}src{$ds}Controller{$ds}Factory"))){
+                     mkdir(sprintf(".{$ds}{$this->config->module}{$ds}{$module}{$ds}src{$ds}Controller{$ds}Factory"));
+                 }
+                 $controllerFactory=new ControllerFactory($data,$this->containerInterface);
+                 $controllerFactory->generateClass();
+                 $msg[]="Controller Factory {$classe} Foi Criado Com Sucesso!";
+             }
+             if(!$param || $param=='controller' ){
 
-            if(!is_dir(sprintf(".{$ds}{$this->config->module}{$ds}{$module}{$ds}src{$ds}Controller"))){
-                mkdir(sprintf(".{$ds}{$this->config->module}{$ds}{$module}{$ds}src{$ds}Controller"));
-            }
-            $controller=new Controller($data,$this->containerInterface);
+                 if(!is_dir(sprintf(".{$ds}{$this->config->module}{$ds}{$module}{$ds}src{$ds}Form"))){
+                     mkdir(sprintf(".{$ds}{$this->config->module}{$ds}{$module}{$ds}src{$ds}Form"));
+                 }
+                 $form=new Form($data,$this->containerInterface);
+                 $form->generateClass();
+                 $msg[]="Form {$classe} Foi Criado Com Sucesso!";
 
-            $controller->generateClass();
-            $msg[]="Controller {$classe} Foi Criado Com Sucesso!";
+                 if(!is_dir(sprintf(".{$ds}{$this->config->module}{$ds}{$module}{$ds}src{$ds}Form{$ds}Factory"))){
+                     mkdir(sprintf(".{$ds}{$this->config->module}{$ds}{$module}{$ds}src{$ds}Form{$ds}Factory"));
+                 }
+                 $formFactory=new FactoryForm($data,$this->containerInterface);
+                 $formFactory->generateClass();
+                 $msg[]="Form Factory {$classe} Foi Criado Com Sucesso!";
 
-            if(!is_dir(sprintf(".{$ds}{$this->config->module}{$ds}{$module}{$ds}src{$ds}Controller{$ds}Factory"))){
-                mkdir(sprintf(".{$ds}{$this->config->module}{$ds}{$module}{$ds}src{$ds}Controller{$ds}Factory"));
-            }
-            $controllerFactory=new ControllerFactory($data,$this->containerInterface);
-            $controllerFactory->generateClass();
-            $msg[]="Controller Factory {$classe} Foi Criado Com Sucesso!";
+                 $filter=new Filter($data,$this->containerInterface);
+                 $filter->generateClass();
+                 $msg[]="Filter {$classe} Foi Criado Com Sucesso!";
 
-            if(!is_dir(sprintf(".{$ds}{$this->config->module}{$ds}{$module}{$ds}src{$ds}Form"))){
-                mkdir(sprintf(".{$ds}{$this->config->module}{$ds}{$module}{$ds}src{$ds}Form"));
-            }
-            $form=new Form($data,$this->containerInterface);
-            $form->generateClass();
-            $msg[]="Form {$classe} Foi Criado Com Sucesso!";
+                 $filterFactory=new FactoryFilter($data,$this->containerInterface);
+                 $filterFactory->generateClass();
+                 $msg[]=PHP_EOL;
+                 $msg[]="Filter Factory {$classe} Foi Criado Com Sucesso!";
+             }
 
-            if(!is_dir(sprintf(".{$ds}{$this->config->module}{$ds}{$module}{$ds}src{$ds}Form{$ds}Factory"))){
-                mkdir(sprintf(".{$ds}{$this->config->module}{$ds}{$module}{$ds}src{$ds}Form{$ds}Factory"));
-            }
-            $formFactory=new FactoryForm($data,$this->containerInterface);
-            $formFactory->generateClass();
-            $msg[]="Form Factory {$classe} Foi Criado Com Sucesso!";
 
-            $filter=new Filter($data,$this->containerInterface);
-            $filter->generateClass();
-            $msg[]="Filter {$classe} Foi Criado Com Sucesso!";
-
-            $filterFactory=new FactoryFilter($data,$this->containerInterface);
-            $filterFactory->generateClass();
-
-            $msg[]=PHP_EOL;
-            $msg[]="Filter Factory {$classe} Foi Criado Com Sucesso!";
             $this->Messages()->flashSuccess(implode("<p>",$msg));
              return $this->redirect()->toRoute("make");
         }
